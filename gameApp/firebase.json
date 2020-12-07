@@ -1,0 +1,11 @@
+{
+  "rulesFile": "database.rules.json",
+  "hosting": {
+    "public": "dist/gameApp",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-light fixed-top bg-light flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
+
+    <span class="dasboard-text">Game App</span>
+  </a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" routerLink="">
+        <span class="user-image" style="background-image: url('assets/user.jpg')"></span>
+
+      </a>
+    </li>
+  </ul>
+  <button class="btn btn-primary" *ngIf="user" (click)="auth.signOut()">Logout</button>
+</nav>
+
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar" style="margin-top: 70px;">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+
+          <!-- routerLink="/register-student" to navigate to view-students component -->
+          <li class="list-group-item" *ngIf="user">
+            <a class="list-group-item" routerLink="/add-match" routerLinkActive="active">
+              <i class="fas fa-plus"></i> Add Game
+            </a>
+          </li>
+          <li class="list-group-item" *ngIf="!user">
+            <a class="list-group-item" routerLink="/login" routerLinkActive="active">
+              Login
+            </a>
+          </li>
+          <li class="list-group-item" *ngIf="!user">
+            <a class="list-group-item" routerLink="/register" routerLinkActive="active">
+              Register
+            </a>
+          </li>
+          <li class="list-group-item" *ngIf=user>
+            <a class="list-group-item" routerLink="/match-list" routerLinkActive="active">
+              <i class="fas fa-list-ul"></i>  Game List
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main" style="margin-top: 50px;" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+
+        <!-- Use router template to show the components for which router service is activated -->
+        <router-outlet></router-outlet>
+
+      </div>
+    </main>
+
+  </div>
+</div>
